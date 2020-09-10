@@ -101,6 +101,15 @@ var displayRepos = function(repos, searchTerm) {
     }
 }
 
+var buttonClickHandler = function(event){
+    var language = event.target.getAttribute("data-language")
 
+    if (language) {
+        getFeaturedRepos(language);
+
+        // clear old context
+        repoContainerEl.textContent = "";
+    }
+}
 userFormEl.addEventListener("submit", formSubmitHandler);
 languageButtonEl.addEventListener("click", buttonClickHandler);
